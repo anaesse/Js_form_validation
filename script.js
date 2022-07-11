@@ -8,7 +8,32 @@ form.addEventListener('submit', e => {
 	e.preventDefault();
 	
 	checkInputs();
+	validateUsername(username);
 });
+
+function validateUsername(username){
+	const usernameValue = username.value.trim();
+	console.log(usernameValue, usernameValue.length);
+	if(usernameValue.length > 20){
+		setErrorFor(username, 'Username must be less than 15');
+	}else{
+		return true
+	}
+}
+// function validateEmail(email){
+// 	const emailValue = email.value.trim();
+
+// 	const checkemail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
+// 	emailValue = checkemail.test(email);
+
+// 	if(emailValue !== true){
+// 		setErrorFor(username, 'email must be in the right format');
+// 	}else{
+// 		return true
+// 	}
+// }
+
 
 function checkInputs() {
 	// trim to remove the whitespaces
@@ -39,7 +64,7 @@ function checkInputs() {
 	}
 	
 	if(password2Value === '') {
-		setErrorFor(password2, 'Password2 cannot be blank');
+		setErrorFor(password2, 'Confirm password cannot be blank');
 	} else if(passwordValue !== password2Value) {
 		setErrorFor(password2, 'Passwords does not match');
 	} else{
