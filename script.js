@@ -8,18 +8,8 @@ form.addEventListener('submit', e => {
 	e.preventDefault();
 	
 	checkInputs();
-	validateUsername(username);
 });
 
-function validateUsername(username){
-	const usernameValue = username.value.trim();
-	console.log(usernameValue, usernameValue.length);
-	if(usernameValue.length > 20){
-		setErrorFor(username, 'Username must be less than 15');
-	}else{
-		return true
-	}
-}
 // function validateEmail(email){
 // 	const emailValue = email.value.trim();
 
@@ -28,7 +18,7 @@ function validateUsername(username){
 // 	emailValue = checkemail.test(email);
 
 // 	if(emailValue !== true){
-// 		setErrorFor(username, 'email must be in the right format');
+// 		setErrorFor(email, 'email must be in the right format');
 // 	}else{
 // 		return true
 // 	}
@@ -45,7 +35,10 @@ function checkInputs() {
 	
 	if(usernameValue === '') {
 		setErrorFor(username, 'Username cannot be blank');
-	} else {
+	}else if(usernameValue.length > 20){
+		setErrorFor(username, 'Username must be less than 15');
+	}
+	 else {
 		setSuccessFor(username);
 	}
 	
@@ -86,5 +79,9 @@ function setSuccessFor(input) {
 	
 function isEmail(email) {
 
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+	const checkemail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+	const emailResult = checkemail.test(email);
+	return emailResult
+
+	// return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
