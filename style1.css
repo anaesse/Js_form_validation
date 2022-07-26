@@ -32,35 +32,35 @@ padding: 50px;
 
    
 }
-button{
-    cursor: pointer;
-    font-weight: bolder;
-    border: 1px solid transparent;
-    border-radius: 5px;
-
-}
-#btn-1 a{
+a{
     padding: 7px;
     background-color: rgb(241, 175, 88);
     color:rgb(228, 226, 242);
     text-decoration: none;
     border-radius: 5px; 
 }
-#btn-1 a:hover{
+a:hover{
     background-color: rgb(173, 118, 46);
     color:rgb(18, 17, 16);
     padding: 10px;
     transition: 0.4s;
     text-decoration: none;
-
-}
-#btn-2 a{
-    width: 100%;
-    padding: 5px;
-    background-color: rgb(194, 153, 99);
     
 }
-#btn-2 a:hover{
+
+#btn{
+    width: 100%;
+    cursor: pointer;
+    font-weight: bolder;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(194, 153, 99);
+    color: #000;
+    text-decoration: none;
+    
+}
+#btn:hover{
     background-color: rgb(173, 118, 46);
     color:rgb(243, 240, 237);
     padding: 10px;
