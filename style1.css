@@ -54,13 +54,13 @@ button{
     text-decoration: none;
 
 }
-#btn-2{
+#btn-2 a{
     width: 100%;
     padding: 5px;
     background-color: rgb(194, 153, 99);
     
 }
-#btn-2:hover{
+#btn-2 a:hover{
     background-color: rgb(173, 118, 46);
     color:rgb(243, 240, 237);
     padding: 10px;

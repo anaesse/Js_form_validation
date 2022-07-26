@@ -5,25 +5,25 @@ const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 
 form.addEventListener('submit', e => {
-	e.preventDefault();
-	
 	checkInputs();
+	if(validForm() == true) {
+		form.submit ();
+	} else {
+		e.preventDefault();
+	}
 });
 
-// function validateEmail(email){
-// 	const emailValue = email.value.trim();
+function validForm() {
+	const inputContainers = form.querySelectorAll('.form-control');
+	let result = true;
 
-// 	const checkemail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-
-// 	emailValue = checkemail.test(email);
-
-// 	if(emailValue !== true){
-// 		setErrorFor(email, 'email must be in the right format');
-// 	}else{
-// 		return true
-// 	}
-// }
-
+	inputContainers.forEach((container) => {
+		if(container.classList.contains('error')){
+			result  = false;
+		}
+	});
+	return result;
+}
 
 function checkInputs() {
 	// trim to remove the whitespaces
